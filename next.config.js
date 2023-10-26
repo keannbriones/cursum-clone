@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+const withNextIntl = require('next-intl/plugin')();
 const nextConfig = {
   eslint: {
     dirs: ['src'],
@@ -8,11 +9,11 @@ const nextConfig = {
   swcMinify: true,
 
   // Uncoment to add domain whitelist
-  // images: {
-  //   domains: [
-  //     'res.cloudinary.com',
-  //   ],
-  // },
+  images: {
+    domains: [
+      'cursum.com',
+    ],
+  },
 
   webpack(config) {
     // Grab the existing rule that handles SVG imports
@@ -47,4 +48,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = withNextIntl(nextConfig);
